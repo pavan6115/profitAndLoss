@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;500;700&display=swap');
 
-* {
+*{
     margin: 0;
     padding: 0;
     font-family: 'Bellefair', serif;
@@ -10,5 +11,67 @@
     outline : none;
 }
 
+:root {
+    --primary-color : #fadde1;
+    --secondary-color : #f38375;
+}
 
+body {
+    background-color: var(--primary-color);
+}
 
+.header {
+    text-align: center;
+    margin: 2.5rem;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+label, button{
+    display: block;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    margin : 3rem 0rem;
+}
+
+.label {
+    margin: .3rem;
+    font-size: 1.5rem;
+}
+
+.inputClass {
+    height: 1.8rem;
+    width: 30%;
+    padding: 0.2rem 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: .5rem;
+}
+
+.checkPL-btn {
+    margin: 1rem 42rem;
+    border: none;
+    border-radius: .6rem;
+    height: 2.5rem;
+    width: 6.5rem;
+    font-size: 1rem;
+}
+
+.checkPL-btn:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    letter-spacing: 1px;
+}
+
+.outputMsg {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 500;
+    margin: 1.7rem;
+    font-size: 1.3rem;
+    margin: 3rem 0rem;
+}
