@@ -8,32 +8,37 @@ const outputMsg = document.querySelector('.outputMsg')
 
 
 function calculateProfitAndLoss(initial, qty, current){
-    if (initial > current) {
-        // loss
-        let loss = (initial - current) * qty
-        let lossPercentage = (loss/initial) * 100
-
-        console.log(`The loss is ${loss} and loss percentage is ${lossPercentage}%`)
-    }
-    else if (initial === current){
-        // same
-        console.log('No Profit nor Loss, invest properly!')
-    }
-    else {
+    if (initial < current) {
         //profit
         let profit = (current - initial) * qty
         let profitPercentage = (profit/initial) * 100
 
-        console.log(`The profit is ${profit} and profit percentage is ${profitPercentage}%`)
+        showMessage(`The profit is ${profit} and profit percentage is ${profitPercentage.toFixed(2)}%`)
+    }
+    else if (initial > current){
+        // loss
+        let loss = (initial - current) * qty
+        let lossPercentage = (loss/initial) * 100
+
+        showMessage(`The loss is ${loss} and loss percentage is ${lossPercentage.toFixed(2)}%`)
+    }
+    else {
+        // same
+        showMessage('No Profit nor Loss, invest properly!')
     }
 }
 
-function submitHandler() {
-    const initialCost = initialPrice.value
-    const totalQty = qtyOfStocks.value
-    const currentCost = currentPrice.value
+function profitOrLoss() {
+    const initialCost = Number(initialPrice.value)
+    const totalQty = Number(qtyOfStocks.value)
+    const currentCost = Number(currentPrice.value)
 
     calculateProfitAndLoss(initialCost, totalQty, currentCost)
 }
 
-checkPLBtn.addEventListener('click', submitHandler)
+function showMessage(msg) {
+    outputMsg.innerText = msg
+}
+
+
+checkPLBtn.addEventListener('click', profitOrLoss)
